@@ -1,4 +1,4 @@
-# This is the file that Heroku uses to launch Sinatra applications. So this
+# This is the file that ... uses to launch Sinatra applications. So this
 # file needs to know about all the code from the other files that make up
 # the applicaton. Since we made `application.rb` reference all other files,
 # loading that file will bring the rest of the code.

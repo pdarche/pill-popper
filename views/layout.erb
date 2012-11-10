@@ -2,10 +2,12 @@
 
 <html>
   <head>
-    <title>Sinatra Starter</title>
-    <link rel="stylesheet" href="/style.css"/>
+    <title><%= @title %></title>
+    <link rel="stylesheet" href="styles/style.css"/>
+    <link rel="stylesheet" href="styles/<%= @style %>.css"/>
   </head>
   <body>
     <%= yield %>
   </body>
+  <script type="text/javascript" src="javascripts/<%= @js %>.js"></script>
 </html>

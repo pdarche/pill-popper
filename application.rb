@@ -3,53 +3,70 @@ Bundler.require
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite")
 
-class Thing
+class User
   include DataMapper::Resource
   
   property :id, Serial, :key => true
-  property :title, String
+  property :name, String
+  property :age, Integer
   property :description, Text
+  property :pharmacist, Text
+  property :doctor, Text
+
+  has n, :prescriptions
+
+end
+
+class Prescription
+  include DataMapper::Resource
+
+  property :id, Serial, :key => true
+  property :medication, Text
+  property :condition, Text
+  property :start_date, Date
+  property :end_date, Date
+  property :prescribed_by, Text
+  property :regiment, Text
+
+end
+
+class Pharmacist
+  include DataMapper::Resource
+
+  property :id, Serial, :key => true
+  property :name, Text
+  property :pharmacy, Text 
+
+  has n, :users
+
 end
 
 DataMapper.finalize
 
 get '/' do
   erb :index
+  @users = Users.all
+  @title = 'Pill Popper'
+  @js = 'index'
+  @style = 'index'
 end
 
-get '/things' do
-  @things = Thing.all
-  erb :things_index
+put '/take_med' do
+  #set prescription to taken for date
+
 end
 
-get '/things/new' do
-  erb :things_new
+get '/pharmacist/:id' do
+  erb :pharmacist
+  @title = 'Pharmacists'
+  @js = 'pharmacist'
+  @style = 'pharmacist'
+  @patients = Users.all(:pharmacist => params[:id]) #this'll need to change.  filter by pharmacist name / (id?)
 end
 
-post '/things' do
-  @thing = Thing.new(params)
-  @thing.save
-  redirect '/things'
+post '/add_prescription' do
+  @prescription = Prescription.new(params)
+  @prescription.save
+  redirect '/pharmacist'
 end
 
-get '/things/:id' do
-  @thing = Thing.get(params[:id])
-  erb :things_show
-end
-
-get '/things/:id/edit' do
-  @thing = Thing.get(params[:id])
-  erb :things_edit
-end
-
-post '/things/:id' do
-  @thing = Thing.get(params[:id])
-  @thing.update(:title => params[:title], :description => params[:description])
-  @thing.save
-  redirect "/things/#{params[:id]}"
-end
-
-get '/things/:id/delete' do
-  Thing.get(params[:id]).destroy
-  redirect '/things'
-end

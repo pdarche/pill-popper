@@ -1,4 +1,4 @@
-# Sinatra Starter
+# Pill Poppin'
 **A little Sinatra app made by Ben Light and Peter 'Ate The Whole Thing' Darche to disrupt the hell out of the pharmaceutical indsutry**
 
 ## Usage
