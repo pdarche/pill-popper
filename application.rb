@@ -26,7 +26,7 @@ class Prescription
   property :start_date, Date
   property :end_date, Date
   property :prescribed_by, Text
-  property :regiment, Text
+  property :regimen, Text
 
 end
 
