@@ -1,0 +1,35 @@
+#content_wrapper{
+	background-color: rgba(255,255,255,.6);
+	-webkit-box-shadow:  
+        5px 5px 10px -2px #888,
+        -5px 5px 10px -2px #888;
+	border-radius: 15px;
+	margin: 0px auto 20px auto;
+	position: relative;
+	top:80px;
+	width: 845px;
+}
+
+#form_wrapper{
+	display:block;
+	margin:20px auto;
+	position: relative;
+	width:500px;
+}
+
+#form_wrapper input {
+	border:0px;
+	border-radius: 15px;
+	height:50px;
+	width:100%;
+}
+
+#form_wrapper p {
+	position: relative;
+	font-size:30px;
+	margin:10px;
+}
+
+input[type="submit"] {
+	margin: 20px 0px
+}

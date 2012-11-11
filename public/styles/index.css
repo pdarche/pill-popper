@@ -1,0 +1,83 @@
+#content_wrapper{
+	background-color: rgba(255,255,255,.6);
+	-webkit-box-shadow:  
+        5px 5px 10px -2px #888,
+        -5px 5px 10px -2px #888;
+	border-radius: 15px;
+	height: 500px;
+	margin: 0px auto;
+	position: relative;
+	top:80px;
+	width: 845px;
+
+}
+
+#intro_wrapper {
+	display: inline-block;
+	float:left;
+	height:100%;
+	width: 510px;
+
+}
+
+#intro_content_wrapper{
+	float:left;
+	margin: 30px 10px;
+}
+
+h1 {
+	font-family:Trebuchet sans-serif;
+	font-size: 80px;
+	margin:10px;
+	text-align: center;	
+}
+
+h2 {
+	font-family:"Trebuchet", sans-serif;
+	text-align: center;
+	margin:10px;
+}
+
+input {
+	height: 80px;
+	width: 80%;
+	border-radius:10px;
+	border:0px;
+	margin:10px 40px;
+	font-size:60px;
+	font-style: italic;
+	color: rgba(100,100,100, .2);
+
+}
+
+button {
+	height: 60px;
+	width: 80%;
+	border-radius:10px;
+	border:0px;
+	margin:10px 40px;
+	font-size:30px;
+}
+
+/*form {
+	float:left;
+}*/
+
+#login_wrapper {
+	height: 30px;
+	position: relative;
+	width: 500px;
+
+}
+
+#signup_wrapper{
+	display:inline-block;
+	width: 300px;
+	height: 450px;
+	margin: 25px 0px;
+}
+
+#pill{
+	background-image: url('/images/labled-bottle-450x300.png');
+	height:450px;
+}

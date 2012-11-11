@@ -1,11 +1,24 @@
-<% @patients.each do |patient| %>
-  <div class="patient">
-  	<div><%= patient.name %></div>
-  	<img src="<%= patient.photo %>" />
-  </div>
-  <div class="medications">
-<!--   	<% meds.each do |med| %>
-		
-	<% end %>  	 -->
-  </div>
-<% end %>
+<div id="content_wrapper">
+	<div id="form_wrapper">
+		<h1> Add New User </h1>
+		<div id="add_patient">
+			<form action="/signup" method="POST" enctype="multipart/form-data">
+				<p> username: </p> 
+				<input type="text" name="username" id="username"> 
+				<p> password: </p>
+				<input type="text" name="password" id="password"> 
+				<p> name: </p> 
+				<input type="text" name="name" id="name"> 
+				<p> age: </p> 
+				<input type="text" name="age" id="age">
+				<p> personal description: </p> 
+				<input type="text" name="description" id="description"> 
+				<p> pharmacist's name: </p> 
+				<input type="text" name="pharmacist" id="pharmacist"> 
+				<p> affiliations (spouse, etc.): </p> 
+				<input type="text" name="affiliation" id="affiliations">  
+				<input type="submit">
+			</form>
+		</div>
+	</div>	
+</div>

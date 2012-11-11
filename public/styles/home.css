@@ -1,0 +1,16 @@
+.user {	
+	background-color: rgba(255,255,255,.6);
+	-webkit-box-shadow:  
+        5px 5px 10px -2px #888,
+        -5px 5px 10px -2px #888;
+	height:50%;
+	width:90%;
+}
+
+.user-info{
+	background-color: rgba(255,255,255,.7);
+	font-family: trebuchet;
+	width:20%;
+	height:10%;
+}
+
