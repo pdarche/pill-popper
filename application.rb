@@ -5,8 +5,7 @@ require './helpers/partials'
 
 # helpers Sinatra::partials
 
-
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/development.sqlite")
+DataMapper.setup(:default, "sqlite://#{Dir.pwd}/development.db")
 
 class User
   include DataMapper::Resource
@@ -17,9 +16,10 @@ class User
   property :name,         String
   property :age,          Integer
   property :description,  Text
-  property :pharmacist,   Text
+  property :pharmacisto,   Text
   property :affiliation,  Integer
-
+  
+  belongs_to :pharmacist
   has n, :prescriptions
 
 end
@@ -34,7 +34,9 @@ class Prescription
   property :start_date,    Date
   property :end_date,      Date
   property :prescribed_by, Text
-  property :regimen,       Text
+  property :regimen,       Integer
+
+  belongs_to :user
 
 end
 
@@ -61,10 +63,17 @@ get '/' do
 end
 
 post '/signup' do
-  @user = User.new(params)
-  if @user.save
-     puts "did it"
+  pharmacist = Pharmacist.get(1)
+  user = User.new(params)
+  user.id = 1
+  pharmacist.users << user
+  p user
+
+  if pharmacist.save && user.save
+     p "did it"
      redirect('/')
+  else
+     p "you fucked up"
   end
 end
 

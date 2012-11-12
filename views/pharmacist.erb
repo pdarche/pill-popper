@@ -2,21 +2,23 @@
 	<div id="form_wrapper">
 		<h1> Add New User </h1>
 		<div id="add_patient">
-			<form action="/signup" method="POST" enctype="multipart/form-data">
+			<form action="/signup" method="POST" enctype="multipart/form-data" id="new_user">
 				<p> username: </p> 
-				<input type="text" name="username" id="username"> 
+				<input type="text" name="username" id="new_user[username]" value="Haus"> 
 				<p> password: </p>
-				<input type="text" name="password" id="password"> 
+				<input type="text" name="password" id="new_user[password]" value="password"> 
 				<p> name: </p> 
-				<input type="text" name="name" id="name"> 
+				<input type="text" name="name" id="new_user[name]" value="Mr. Haus"> 
 				<p> age: </p> 
-				<input type="text" name="age" id="age">
+				<input type="text" name="age" id="new_user[age]" value="100">
 				<p> personal description: </p> 
-				<input type="text" name="description" id="description"> 
+				<input type="text" name="description" id="new_user[description]" value="super cool guy"> 
 				<p> pharmacist's name: </p> 
-				<input type="text" name="pharmacist" id="pharmacist"> 
-				<p> affiliations (spouse, etc.): </p> 
-				<input type="text" name="affiliation" id="affiliations">  
+				<input type="text" name="pharmacisto" id="new_user[pharmacisto]" value="Mr. Nice Pharmacist"> 
+<!-- 				<p> affiliations (spouse, etc.): </p> 
+				<input type="text" name="affiliation" id="new_user[affiliations]" value="Your Mom">  --> 
+<!-- 				<p> pharmacist_id: </p> 
+				<input type="text" name="pharmacist_id" id="new_user[pharmacist_id]" value="1"> -->
 				<input type="submit">
 			</form>
 		</div>
