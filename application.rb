@@ -16,7 +16,6 @@ class User
   property :name,         String
   property :age,          Integer
   property :description,  Text
-  property :pharmacisto,   Text
   property :affiliation,  Integer
   
   belongs_to :pharmacist
