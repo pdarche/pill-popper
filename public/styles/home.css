@@ -1,16 +1,66 @@
 .user {	
-	background-color: rgba(255,255,255,.6);
-	-webkit-box-shadow:  
-        5px 5px 10px -2px #888,
-        -5px 5px 10px -2px #888;
-	height:50%;
-	width:90%;
+
 }
 
 .user-info{
-	background-color: rgba(255,255,255,.7);
-	font-family: trebuchet;
-	width:20%;
-	height:10%;
+	display: block;
+	font-size:40px;
+	width:50%;
+	margin:20px;
+	overflow-y: auto; 	
 }
 
+.user-info img, .user-info p{
+	float: left;
+	height: 40px;
+	margin: 10px;
+}
+
+.medications {
+	display:block;
+	margin:0px auto;
+	overflow-y: auto;
+}
+
+.med {
+	
+	float: left;
+	height: 550px;
+	width: 300px;
+
+}
+
+.bottle{
+	background-image: url('/images/labled-bottle-450x300.png');
+	height:80%;
+}
+
+.med-name {
+	display: block;
+	font-size:50px;
+	margin:0px;
+	padding-top:50%;
+	position:relative;
+	text-align: center;
+}
+
+.quantity {
+	display:block;
+	text-align: center;
+	font-size:175px;
+	position:relative;
+	margin-top:0px;
+	margin-bottom:40px;
+	line-height:80%;
+	height:40%;
+}
+
+.take-button{
+	position: relative;
+	display: block;
+	width: 90%;
+	margin: 20px auto;
+	border: 0px;
+	height: 12%;
+	-webkit-border-radius:15px;
+}

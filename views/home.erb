@@ -1,1 +1,21 @@
-<%= partial 'user', :collection => @user %>
+<div class="user">
+  	<div class="user-info">
+	  	<img class-"user-image" src="/images/user-images/ears.jpg"/>
+	  	<div class="user-name"><p><%= @user.name %></p></div>
+  	</div>
+  	<div class="medications">
+	  	<% @user.prescriptions.each do |prescription|%>
+	  		<div class="med">
+	  			<div class="bottle">
+		  			<p class="med-name">
+		  				<%= prescription.medication %> 
+		  			</p>
+		  			<p class="quantity">
+		  				<%= prescription.take %> 
+		  			</p>
+		  		</div>
+	  			<button class="take-button">Take</button>
+	  		</div>
+	  	<% end %>
+  	</div>
+</div>

@@ -11,3 +11,16 @@ body {
   margin: 0 auto;
   width: 40em;
 }
+
+#content_wrapper{
+	background-color: rgba(255,255,255,.6);
+	-webkit-box-shadow:  
+        5px 5px 10px -2px #888,
+        -5px 5px 10px -2px #888;
+	border-radius: 15px;
+	margin: 0px auto 20px auto;
+	position: relative;
+	top:60px;
+	width: 845px;
+	overflow-y:auto;
+}

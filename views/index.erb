@@ -1,19 +1,27 @@
-<div id="content_wrapper">
-	<div id="intro_wrapper">	
-		<div id="intro_content_wrapper">	
-			<h1>Pill Popper</h1>
-			<h2>Make Poppin Pills a Piece of Pastry&#153</h2>
-			<div id="login_wrapper">
-				<form action="/login" method="post">
-					<input type="text" name="username" value="   username">
-					<input type="text" name="password" value="   password">
-					<button type="submit">Log In / Sign Up</button>
-				</form>	
-			</div>
+<div id="signup_button"><p>sign up</p></div>
+<div id="intro_wrapper">	
+	<div id="intro_content_wrapper">	
+		<h1>Pill Popper</h1>
+		<h2>Make Poppin Pills a Piece of Pastry&#153</h2>
+		<div id="login_wrapper">
+			<form id="login_form" action="/login" method="POST">
+				<input type="text" name="username" value="   username">
+				<input type="text" name="password" value="   password">
+				<button type="submit">Log In</button>
+			</form>	
+		</div>
+		<div id="signup_wrapper">
+			<form id="signup_form" action="/signup" method="POST" enctype="multipart/form-data" id="new_user">
+				<p> <input type="text" name="username" id="new_user[username]" value="username"> </p> 
+				<p> <input type="text" name="password" id="new_user[password]" value="password"> </p>					
+				<p> <input type="text" name="name" id="new_user[name]" value="name"> </p> 
+				<p> <input type="text" name="age" id="new_user[age]" value="age"> </p> 
+				<input type="submit">
+			</form>
 		</div>
 	</div>
-	<div id="signup_wrapper">
-		<div id="pill">
-		</div>
+</div>
+<div id="pill_wrapper">
+	<div id="pill">
 	</div>
 </div>

@@ -1,0 +1,31 @@
+<div id="content_wrapper">
+	<div id="form_wrapper">
+		<h1> Add New User </h1>
+		<div id="add_patient">
+			<form action="/add_prescription" method="POST" enctype="multipart/form-data" id="new_user">
+				<p> medication: </p> 
+				<input type="text" name="medication" id="new_prescription[medication]"> 
+				<p> condition: </p>
+				<input type="text" name="condition" id="new_prescription[condition]"> 
+				<p> start date: </p> 
+				<input type="text" name="start_date" id="new_prescription[start_date]"> 
+				<p> end date: </p> 
+				<input type="text" name="end_date" id="new_prescription[end_date]">
+				<p> prescribed by: </p> 
+				<input type="text" name="prescribed_by" id="new_prescription[prescribed_by]"> 
+				<p> regimen </p> 
+				<input type="text" name="regimen" id="new_prescription[regimen]"> 
+				<p> pills per dose </p> 
+				<input type="text" name="take" id="new_prescription[take]"> 
+				<p> basic info </p> 
+				<input type="text" name="basic_info" id="new_prescription[basic_info]">  
+				<p> side effects </p> 
+				<input type="text" name="side_effects" id="new_prescription[side_effects]" > 
+				<p> warnings </p> 
+				<input type="text" name="warnings" id="new_prescription[warnings]"> 
+				<input type="text" name="username" id="new_prescription[username]" value="<%= @user %>"> 
+				<input type="submit">
+			</form>
+		</div>
+	</div>	
+</div>
