@@ -1,0 +1,25 @@
+
+
+.user-info{
+	display: block;
+	font-size:40px;
+	width:50%;
+	margin:20px;
+	overflow-y: auto; 	
+}
+
+.user-info img, .user-info p{
+	float: left;
+	height: 40px;
+	margin: 10px;
+}
+
+.medications, .add_pat {
+	margin:20px;
+	font-size: 30px;
+}
+
+.add_pat input{font-size: 20px; color: black;}
+.add_pat input.long {width: 700px;}
+
+.add_pat select{font-size: 40px;}

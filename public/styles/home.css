@@ -68,6 +68,7 @@
 	width:100%;
 	height: 50%;
 	background-color: white;
+	padding:20px;
 }
 
 .pills-to-take{
@@ -80,5 +81,21 @@
 }
 
 .pills-no-take{
-	display:block;
+	display: block;
+	font-size:20px;
+	margin:20px;
+	overflow-y: auto; 
+	font-weight: bold;
+	color: #ff0000;
+	
 }
+
+.pills-np-take{
+	display: block;
+	font-size:20px;
+	margin:20px;
+	overflow-y: auto; 
+	font-weight: bold;
+}
+
+.interval {display:none;}

@@ -5,7 +5,7 @@ require './helpers/partials'
 
 # helpers Sinatra::partials
 
-DataMapper.setup(:default, "sqlite://#{Dir.pwd}/test.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite://#{Dir.pwd}/test.db")
 
 class User
   include DataMapper::Resource
@@ -197,7 +197,8 @@ end
 get '/new_prescription/:username' do 
   @user = params[:username]
   @js = 'add_prescription'
-  @style = 'datepicker'
+  @style = 'add_prescription'
+
   erb :add_prescription
 end
 

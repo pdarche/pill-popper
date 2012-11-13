@@ -8,7 +8,7 @@
 	  	<% @user.prescriptions.each do |prescription|%>
 	  		<div class="med <%= prescription.id %>">
 	  			<div class="bottle">
-		  			<p class="med-name">
+	  				<p class="med-name">
 		  				<%= prescription.medication %> 
 		  			</p>
 		  			<p class="quantity">
@@ -18,19 +18,18 @@
 	  			<button class="take-button">Take</button>
 	  			<div class="med-info">
 	  				<div class="interval">
-			  			<%= prescription.hours %> 
+				  			<%= prescription.hours %> 
+				  		</div>
+	  				<div class="prescribed-by">
+			  			<p>Doctor <%= prescription.prescribed_by %> says I need to take <%= prescription.number %> dose(s) of  <%= prescription.medication %> every <%= prescription.hours %> hours, for my <%= prescription.condition %>.</p>
 			  		</div>
-			  		<div class="condition">
-			  			<%= prescription.condition %> 
-			  		</div>
-			  		<div class="prescribed-by">
-			  			<%= prescription.prescribed_by %> 
-			  		</div>
+			  		
 			  		<div class="side-effects">
-			  			<%= prescription.side_effects %> 
+			  			<p>The side effects are <%= prescription.side_effects %>.</p>
 			  		</div>
+			  		
 			  		<div class="warnings">
-			  			<%= prescription.warnings %> 
+			  			<p>The warnigs are <%= prescription.warnings %>.</p>
 			  		</div>
 			  	</div>
 	  		</div>
@@ -49,31 +48,30 @@
 		  	<% @affiliate.prescriptions.each do |prescription|%>
 		  		<div class="med <%= prescription.id %>">
 		  			<div class="bottle">
-			  			<p class="med-name">
-			  				<%= prescription.medication %> 
-			  			</p>
-			  			<p class="quantity">
-			  				<%= prescription.number %> 
-			  			</p>
-			  		</div>
-		  			<button class="take-button">Take</button>
-		  			<div class="med-info">
-		  				<div class="interval">
+	  				<p class="med-name">
+		  				<%= prescription.medication %> 
+		  			</p>
+		  			<p class="quantity">
+		  				<%= prescription.number %> 
+		  			</p>
+		  		</div>
+	  			<button class="take-button">Take</button>
+	  			<div class="med-info">
+	  				<div class="interval">
 				  			<%= prescription.hours %> 
 				  		</div>
-				  		<div class="condition">
-				  			<%= prescription.condition %> 
-				  		</div>
-				  		<div class="prescribed-by">
-				  			<%= prescription.prescribed_by %> 
-				  		</div>
-				  		<div class="side-effects">
-				  			<%= prescription.side_effects %> 
-				  		</div>
-				  		<div class="warnings">
-				  			<%= prescription.warnings %> 
-				  		</div>
-				  	</div>
+	  				<div class="prescribed-by">
+			  			<p>Doctor <%= prescription.prescribed_by %> says I need to take <%= prescription.number %> dose(s) of  <%= prescription.medication %> every <%= prescription.hours %> hours, for my <%= prescription.condition %>.</p>
+			  		</div>
+			  		
+			  		<div class="side-effects">
+			  			<p>The side effects are <%= prescription.side_effects %>.</p>
+			  		</div>
+			  		
+			  		<div class="warnings">
+			  			<p>The warnigs are <%= prescription.warnings %>.</p>
+			  		</div>
+			  	</div>
 		  		</div>
 		  	<% end %>
 	  	</div>
