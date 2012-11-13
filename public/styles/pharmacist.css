@@ -4,10 +4,12 @@
         5px 5px 10px -2px #888,
         -5px 5px 10px -2px #888;
 	border-radius: 15px;
+	
 	margin: 0px auto 20px auto;
 	position: relative;
 	top:80px;
 	width: 845px;
+	
 }
 
 #form_wrapper{

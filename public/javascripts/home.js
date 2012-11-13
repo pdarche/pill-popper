@@ -62,11 +62,11 @@ function checkMeds(){
 				userString = '.user-name.' + userId
 
 			if ( ts - $.parseJSON(data.user[i]).time_taken > interval ) {
-				$('.user').eq(0).parent().append('<div>Pills to Take</div>')
+				$('.user').eq(0).parent().append('<div class=pills-to-take>Pills to Take</div>')
 			}
 			else {
 				$(classString).remove()
-				$('.user').eq(0).parent().append('<div>No Pills to Take!</div>')
+				$('.user').eq(0).parent().append('<div class=pills-no-take>No Pills to Take!</div>')
 			} 
 
 			console.log($(userString).parent().parent())
@@ -79,11 +79,11 @@ function checkMeds(){
 				userString = '.user-name.' + userId
 
 			if ( ts - $.parseJSON(data.affiliate[i]).time_taken > interval ) {
-				$('.affiliate').parent().append('<div>Pills to Take</div>')
+				$('.affiliate').parent().append('<div class=pills-to-take>Pills to Take</div>')
 			}
 			else {
 				$(classString).remove()
-				$('.affiliate').parent().append('<div>No Pills to Take!</div>')
+				$('.affiliate').parent().append('<div class=pills-no-take>No Pills to Take!</div>')
 			} 
 
 			console.log($(userString).parent())

@@ -1,10 +1,11 @@
+<div class="content_wrapper">
 <div id="form_wrapper">
 	<h1> Add New User </h1>
-	<div id="add_patient">
+	<div id="add_patient medications">
 		<form action="/add_prescription" method="POST" enctype="multipart/form-data" id="new_user">
-			<p> Doctor: </p> 
+			<p>Doctor  
 			<input type="text" name="prescribed_by" id="new_prescription[prescribed_by]"> 
-			<p> says I need to take </p> 
+			says I need to take  
 			<select type="text" name="number" id="new_prescription[number]">
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -13,21 +14,26 @@
 				<option value="5">5</option>
 				<option value="6">6</option>
 			</select>  
-			<p> medication </p> 
+			doses of  
 			<input type="text" name="medication" id="new_prescription[medication]"> 
-			<p> every </p> 
+			every 
 			<input type="text" name="hours" id="new_prescription[hours]">
-			<p> hours </p> 
-			<p> for my </p>
-			<input type="text" name="condition" id="new_prescription[condition]"> 
-			<p> basic info </p> 
+			hours, for my 
+			<input type="text" name="condition" id="new_prescription[condition]">.</p>
+			
+			<p>The basic information reguarding my medication is  
 			<input type="text" name="basic_info" id="new_prescription[basic_info]">  
-			<p> side effects </p> 
-			<input type="text" name="side_effects" id="new_prescription[side_effects]" > 
-			<p> warnings </p> 
-			<input type="text" name="warnings" id="new_prescription[warnings]"> 
-			<input type="text" name="username" id="new_prescription[username]" value="<%= @user %>"> 
+			and the side effects are
+			<input type="text" name="side_effects" id="new_prescription[side_effects]" >.</p>
+			
+			<p>All warnings and issues I should be aware of reguarding my medication are 
+			<input type="text" name="warnings" id="new_prescription[warnings]">.</p>
+			
+			<p>My user name is
+			<input type="text" name="username" id="new_prescription[username]" value="<%= @user %>"></p>
+			
 			<input type="submit">
 		</form>
 	</div>
-</div>	
+</div>
+</div>
