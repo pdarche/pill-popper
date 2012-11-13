@@ -69,3 +69,21 @@
 	height: 50%;
 	background-color: white;
 }
+
+.pills-to-take{
+	display: block;
+	font-size:40px;
+	margin:20px;
+	overflow-y: auto; 
+	font-weight: bold;
+	color: #ff0000;
+	
+}
+
+.pills-np-take{
+	display: block;
+	font-size:40px;
+	margin:20px;
+	overflow-y: auto; 
+	font-weight: bold;
+}
