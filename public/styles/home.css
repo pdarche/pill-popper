@@ -69,3 +69,16 @@
 	height: 50%;
 	background-color: white;
 }
+
+.pills-to-take{
+	display:block;
+	font-size:20px;
+	margin:20px;
+	overflow-y:auto;
+	font-weight:bold;
+	color:#ff0000;
+}
+
+.pills-no-take{
+	display:block;
+}
