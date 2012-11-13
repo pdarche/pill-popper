@@ -1,0 +1,1 @@
+$('input[name="start_date"], input[name="end_date"]').datepicker()

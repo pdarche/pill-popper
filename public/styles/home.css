@@ -1,7 +1,3 @@
-.user {	
-
-}
-
 .user-info{
 	display: block;
 	font-size:40px;
@@ -17,17 +13,15 @@
 }
 
 .medications {
-	display:block;
-	margin:0px auto;
-	overflow-y: auto;
+	display:none;
+	width:1400px;
 }
 
 .med {
-	
-	float: left;
+	display: inline-block;
 	height: 550px;
 	width: 300px;
-
+	margin: 0px 50px;
 }
 
 .bottle{
@@ -58,9 +52,20 @@
 .take-button{
 	position: relative;
 	display: block;
+	font-size:50px;
 	width: 90%;
 	margin: 20px auto;
-	border: 0px;
+	/*border: 1px solid gray;*/
 	height: 12%;
 	-webkit-border-radius:15px;
+}
+
+.med-info{
+	display:none;
+	position: relative;
+	top: -450px;
+	left: 0px;
+	width:100%;
+	height: 50%;
+	background-color: white;
 }

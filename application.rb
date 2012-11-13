@@ -15,6 +15,7 @@ class User
   property :password,     Text
   property :name,         String
   property :age,          Integer
+  property :affiliation,  Text
   
   has n, :prescriptions
 
@@ -25,13 +26,11 @@ class Prescription
   include DataMapper::Resource
 
   property :id,            Serial, :key => true
+  property :prescribed_by, Text
+  property :number,        Integer
+  property :hours,         Integer
   property :medication,    Text
   property :condition,     Text
-  property :start_date,    Text
-  property :end_date,      Text
-  property :prescribed_by, Text
-  property :regimen,       Integer
-  property :take,          Integer
   property :basic_info,    Text
   property :side_effects,  Text
   property :warnings,      Text
@@ -43,10 +42,12 @@ end
 class Pills_Taken
   include DataMapper::Resource
 
-  property :id,            Serial, :key => true
-  property :userId,        Integer
-  property :medId,         Integer
-  property :taken,         Boolean
+  property :id,             Serial, :key => true
+  property :userId,         Integer
+  property :medId,          Integer
+  property :time_scheduled, DateTime
+  property :time_taken,     DateTime
+  property :taken,          Boolean
 
 end
 
@@ -98,33 +99,92 @@ get '/home/:username' do
   unless session[:username] == params[:username]
     redirect('/')
   end
+  users = []
+  @user = User.first(:username => params[:username])
+  
+  unless @user.affiliation == nil
+    @affiliate = User.first(:username => @user.affiliation)  
+  end
 
-  @user = User.first(:username => params[:username])  
   @title = 'Pill Popper'
   @js = 'home'
   @style = 'home'
   erb :home
 end
 
-put '/take_med' do
-  #set prescription to taken for date
+post '/take_med' do
+  taken = Pills_Taken.new()
+  taken.userId = params[:userId]
+  taken.medId = params[:medId]
+  taken.taken = params[:taken]
+  taken.time_scheduled = Time.now
+  taken.time_taken = Time.now
+
+  if taken.save
+    p "success"
+  else 
+    p "you f'd up"
+  end
+
+end
+
+get '/check_meds' do
+  username = session[:username]
+  user = User.first(:username => username)
+  affiliate = User.first(:username => user.affiliation)
+
+  userId = user.id
+  affiliateId = affiliate.id
+
+  userPre = user.prescriptions
+  affiliatePre = affiliate.prescriptions
+
+  # p prescriptions[0].medication
+
+  finalHash = Hash.new
+
+  user_taken = Pills_Taken.all(:userId => userId)
+  userTaken = []
+
+  if user_taken != nil
+    userPre.each do | prescription | 
+      last = Pills_Taken.last(:medId => prescription.id) 
+      last.time_taken = last.time_taken.to_time.to_i
+      userTaken << last.to_json
+    end
+  end
+
+  affil_taken = Pills_Taken.all(:userId => userId)
+  affilTaken = []
+
+  if affil_taken != nil
+    affiliatePre.each do | prescription | 
+      last = Pills_Taken.last(:medId => prescription.id) 
+      last.time_taken = last.time_taken.to_time.to_i
+      affilTaken << last.to_json
+    end
+  end
+
+  finalHash["user"] = userTaken
+  finalHash["affiliate"] = affilTaken 
+
+  finalHash.to_json
 
 end
 
 post '/add_prescription' do
   user = User.first(:username => params[:username])
   prescription = Prescription.new()
-  prescription.medication = params[:medication]
-  prescription.condition = params[:condition]
-  prescription.start_date = params[:start_date]
-  prescription.end_date = params[:end_date]
   prescription.prescribed_by = params[:prescribed_by]
-  prescription.regimen = params[:regimen]
-  prescription.take = params[:take]
+  prescription.medication = params[:medication]
+  prescription.number = params[:number]
+  prescription.hours = params[:hours]
+  prescription.condition = params[:condition]
   prescription.basic_info = params[:basic_info]
+  prescription.side_effects = params[:side_effects]
   prescription.warnings = params[:warnings]
 
-  p user
+  # p user
   user.prescriptions << prescription
 
   if user.save && prescription.save
@@ -136,6 +196,8 @@ end
 
 get '/new_prescription/:username' do 
   @user = params[:username]
+  @js = 'add_prescription'
+  @style = 'datepicker'
   erb :add_prescription
 end
 

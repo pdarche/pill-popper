@@ -1,21 +1,81 @@
+<div class="content_wrapper <%= @user.id %>">
 <div class="user">
   	<div class="user-info">
 	  	<img class-"user-image" src="/images/user-images/ears.jpg"/>
-	  	<div class="user-name"><p><%= @user.name %></p></div>
+	  	<div class="user-name <%= @user.id %>"><p><%= @user.name %></p></div>
   	</div>
-  	<div class="medications">
+  	<div class="medications viewport">
 	  	<% @user.prescriptions.each do |prescription|%>
-	  		<div class="med">
+	  		<div class="med <%= prescription.id %>">
 	  			<div class="bottle">
 		  			<p class="med-name">
 		  				<%= prescription.medication %> 
 		  			</p>
 		  			<p class="quantity">
-		  				<%= prescription.take %> 
+		  				<%= prescription.number %> 
 		  			</p>
 		  		</div>
 	  			<button class="take-button">Take</button>
+	  			<div class="med-info">
+	  				<div class="interval">
+			  			<%= prescription.hours %> 
+			  		</div>
+			  		<div class="condition">
+			  			<%= prescription.condition %> 
+			  		</div>
+			  		<div class="prescribed-by">
+			  			<%= prescription.prescribed_by %> 
+			  		</div>
+			  		<div class="side-effects">
+			  			<%= prescription.side_effects %> 
+			  		</div>
+			  		<div class="warnings">
+			  			<%= prescription.warnings %> 
+			  		</div>
+			  	</div>
 	  		</div>
 	  	<% end %>
   	</div>
+</div>
+</div>
+
+<div class="content_wrapper">
+	<div class="user">
+	  	<div class="user-info">
+		  	<img class-"user-image" src="/images/user-images/ears.jpg"/>
+		  	<div class="user-name <%= @affiliate.id %>"><p><%= @affiliate.name %></p></div>
+	  	</div>
+	  	<div class="medications viewport">
+		  	<% @affiliate.prescriptions.each do |prescription|%>
+		  		<div class="med <%= prescription.id %>">
+		  			<div class="bottle">
+			  			<p class="med-name">
+			  				<%= prescription.medication %> 
+			  			</p>
+			  			<p class="quantity">
+			  				<%= prescription.number %> 
+			  			</p>
+			  		</div>
+		  			<button class="take-button">Take</button>
+		  			<div class="med-info">
+		  				<div class="interval">
+				  			<%= prescription.hours %> 
+				  		</div>
+				  		<div class="condition">
+				  			<%= prescription.condition %> 
+				  		</div>
+				  		<div class="prescribed-by">
+				  			<%= prescription.prescribed_by %> 
+				  		</div>
+				  		<div class="side-effects">
+				  			<%= prescription.side_effects %> 
+				  		</div>
+				  		<div class="warnings">
+				  			<%= prescription.warnings %> 
+				  		</div>
+				  	</div>
+		  		</div>
+		  	<% end %>
+	  	</div>
+	</div>
 </div>
